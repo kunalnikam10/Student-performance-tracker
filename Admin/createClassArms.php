@@ -16,7 +16,7 @@ if(isset($_POST['save'])){
 
     if($ret > 0){ 
 
-        $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>This classArm Already Exists!</div>";
+        $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>This Subject Already Exists!</div>";
     }
     else{
 
@@ -126,10 +126,10 @@ if(isset($_POST['save'])){
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Create Batch name</h1>
+            <h1 class="h3 mb-0 text-gray-800">Create Subject name</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Create Batch name</li>
+              <li class="breadcrumb-item active" aria-current="page">Create Subject name</li>
             </ol>
           </div>
 
@@ -138,7 +138,7 @@ if(isset($_POST['save'])){
               <!-- Form Basic -->
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Create Batch name</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Create Subject name</h6>
                     <?php echo $statusMsg; ?>
                 </div>
                 <div class="card-body">
@@ -161,8 +161,8 @@ if(isset($_POST['save'])){
                             ?>  
                         </div>
                         <div class="col-xl-6">
-                        <label class="form-control-label">Batch Name<span class="text-danger ml-2">*</span></label>
-                      <input type="text" class="form-control" name="classArmName" value="<?php echo $row['classArmName'];?>" id="exampleInputFirstName" placeholder="Batch Name">
+                        <label class="form-control-label">Subject Name<span class="text-danger ml-2">*</span></label>
+                      <input type="text" class="form-control" name="classArmName" value="<?php echo $row['classArmName'];?>" id="exampleInputFirstName" placeholder="Subject Name">
                         </div>
                     </div>
                       <?php
@@ -187,15 +187,15 @@ if(isset($_POST['save'])){
               <div class="col-lg-12">
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">All Branch</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">All Subjects</h6>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                     <thead class="thead-light">
                       <tr>
-                        <th>#</th>
+                        <th>Sr no</th>
                         <th>Class Name</th>
-                        <th>Batch Name</th>
+                        <th>Subject Name</th>
                          <th>Status</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -245,18 +245,7 @@ if(isset($_POST['save'])){
             </div>
             </div>
           </div>
-          <!--Row-->
-
-          <!-- Documentation Link -->
-          <!-- <div class="row">
-            <div class="col-lg-12 text-center">
-              <p>For more documentations you can visit<a href="https://getbootstrap.com/docs/4.3/components/forms/"
-                  target="_blank">
-                  bootstrap forms documentations.</a> and <a
-                  href="https://getbootstrap.com/docs/4.3/components/input-group/" target="_blank">bootstrap input
-                  groups documentations</a></p>
-            </div>
-          </div> -->
+    
 
         </div>
         <!---Container Fluid-->

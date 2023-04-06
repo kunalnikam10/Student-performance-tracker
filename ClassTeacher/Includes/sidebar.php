@@ -53,7 +53,25 @@
         </div>
       </li>
 
-     
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Marks
+      </div>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap3"
+          aria-expanded="true" aria-controls="collapseBootstrap3">
+          <i class="fas fa-user-graduate"></i>
+          <span>Manage Marks</span>
+        </a>
+        <div id="collapseBootstrap3" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Manage Marks</h6>
+            <a class="collapse-item" href="takeMarks.php">View Marks</a>
+            <!-- <a class="collapse-item" href="#">Assets Type</a> -->
+          </div>
+        </div>
+      </li>
       <!-- <li class="nav-item">
         <a class="nav-link" href="forms.html">
           <i class="fab fa-fw fa-wpforms"></i>

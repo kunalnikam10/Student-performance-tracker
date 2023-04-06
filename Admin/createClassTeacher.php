@@ -241,7 +241,7 @@ if(isset($_POST['save'])){
                             ?>  
                         </div>
                         <div class="col-xl-6">
-                        <label class="form-control-label">Branch<span class="text-danger ml-2">*</span></label>
+                        <label class="form-control-label">Subject<span class="text-danger ml-2">*</span></label>
                             <?php
                                 echo"<div id='txtHint'></div>";
                             ?>
@@ -281,7 +281,7 @@ if(isset($_POST['save'])){
                         <th>Email Address</th>
                         <th>Phone No</th>
                         <th>Class</th>
-                        <th>Branch</th>
+                        <th>Subject</th>
                         <th>Date Created</th>
                         <th>Delete</th>
                       </tr>
@@ -334,18 +334,7 @@ if(isset($_POST['save'])){
             </div>
             </div>
           </div>
-          <!--Row-->
 
-          <!-- Documentation Link -->
-          <!-- <div class="row">
-            <div class="col-lg-12 text-center">
-              <p>For more documentations you can visit<a href="https://getbootstrap.com/docs/4.3/components/forms/"
-                  target="_blank">
-                  bootstrap forms documentations.</a> and <a
-                  href="https://getbootstrap.com/docs/4.3/components/input-group/" target="_blank">bootstrap input
-                  groups documentations</a></p>
-            </div>
-          </div> -->
 
         </div>
         <!---Container Fluid-->

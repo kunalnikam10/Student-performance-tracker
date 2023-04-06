@@ -87,7 +87,7 @@ include '../Includes/session.php';
                         <th>Last Name</th>
                         <th>Roll No</th>
                         <th>Class</th>
-                        <th>Batch</th>
+                        <th>Subject</th>
                         <th>Year</th>
                         <th>Semester</th>
                         <th>Status</th>

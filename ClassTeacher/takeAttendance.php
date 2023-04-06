@@ -178,7 +178,7 @@ if(isset($_POST['save'])){
                         <th>Last Name</th>
                         <th>Roll No</th>
                         <th>Class</th>
-                        <th>Batch</th>
+                        <th>Subject</th>
                         <th>Check</th>
                       </tr>
                     </thead>

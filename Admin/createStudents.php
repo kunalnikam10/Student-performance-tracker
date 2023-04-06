@@ -20,9 +20,9 @@ if(isset($_POST['save'])){
     $query=mysqli_query($conn,"select * from tblstudents where admissionNumber ='$admissionNumber'");
     $ret=mysqli_fetch_array($query);
 
-    if($ret > 0){ 
+    if($ret == 0){ 
 
-        $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>This Email Address Already Exists!</div>";
+        $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>This Name Address Already Exists!</div>";
     }
     else{
 
@@ -61,7 +61,7 @@ if(isset($_POST['save'])){
 
         if(isset($_POST['update'])){
     
-             $firstName=$_POST['firstName'];
+    $firstName=$_POST['firstName'];
   $lastName=$_POST['lastName'];
   $otherName=$_POST['otherName'];
 
@@ -223,7 +223,7 @@ if(isset($_POST['save'])){
                             ?>  
                         </div>
                         <div class="col-xl-6">
-                        <label class="form-control-label">Branch<span class="text-danger ml-2">*</span></label>
+                        <label class="form-control-label">Subject<span class="text-danger ml-2">*</span></label>
                             <?php
                                 echo"<div id='txtHint'></div>";
                             ?>
@@ -263,7 +263,7 @@ if(isset($_POST['save'])){
                         <th>Last Name</th>
                         <th>Roll No</th>
                         <th>Class</th>
-                        <th>Branch</th>
+                        <th>Subject</th>
                         <th>Date Created</th>
                          <th>Edit</th>
                         <th>Delete</th>
@@ -320,16 +320,6 @@ if(isset($_POST['save'])){
           </div>
           <!--Row-->
 
-          <!-- Documentation Link -->
-          <!-- <div class="row">
-            <div class="col-lg-12 text-center">
-              <p>For more documentations you can visit<a href="https://getbootstrap.com/docs/4.3/components/forms/"
-                  target="_blank">
-                  bootstrap forms documentations.</a> and <a
-                  href="https://getbootstrap.com/docs/4.3/components/input-group/" target="_blank">bootstrap input
-                  groups documentations</a></p>
-            </div>
-          </div> -->
 
         </div>
         <!---Container Fluid-->

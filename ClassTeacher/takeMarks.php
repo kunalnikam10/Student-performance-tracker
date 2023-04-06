@@ -1,18 +1,92 @@
-
 <?php 
 error_reporting(0);
 include '../Includes/dbcon.php';
 include '../Includes/session.php';
 
-$query = "SELECT tblclass.className,tblclassarms.classArmName 
-    FROM tblclassteacher
-    INNER JOIN tblclass ON tblclass.Id = tblclassteacher.classId
-    INNER JOIN tblclassarms ON tblclassarms.Id = tblclassteacher.classArmId
-    Where tblclassteacher.Id = '$_SESSION[userId]'";
+    // $query = "SELECT tblclass.className,tblclassarms.classArmName 
+    // FROM tblclassteacher
+    // INNER JOIN tblclass ON tblclass.Id = tblclassteacher.classId
+    // INNER JOIN tblclassarms ON tblclassarms.Id = tblclassteacher.classArmId
+    // Where tblclassteacher.Id = '$_SESSION[userId]'";
+    // $rs = $conn->query($query);
+    // $num = $rs->num_rows;
+    // $rrw = $rs->fetch_assoc();
 
-    $rs = $conn->query($query);
-    $num = $rs->num_rows;
-    $rrw = $rs->fetch_assoc();
+
+//session and Term
+        // $querey=mysqli_query($conn,"select * from tblsessionterm where isActive ='1'");
+        // $rwws=mysqli_fetch_array($querey);
+        // $sessionTermId = $rwws['Id'];
+
+        // $dateTaken = date("Y-m-d");
+
+        // $qurty=mysqli_query($conn,"select * from tblattendance  where classId = '$_SESSION[classId]' and classArmId = '$_SESSION[classArmId]' ");
+        // $count = mysqli_num_rows($qurty);
+
+        // if($count == 0){ //if Record does not exsit, insert the new record
+
+          //insert the students record into the attendance table on page load
+        //   $qus=mysqli_query($conn,"select * from tblstudents  where classId = '$_SESSION[classId]' and classArmId = '$_SESSION[classArmId]'");
+        //   while ($ros = $qus->fetch_assoc())
+        //   {
+        //       $qquery=mysqli_query($conn,"insert into tblmarks(admissionNo,classId,classArmId,sessionTermId,status,dateTimeTaken) 
+        //       value('$ros[admissionNumber]','$_SESSION[classId]','$_SESSION[classArmId]','$sessionTermId','0','$dateTaken')");
+
+        //   }
+        // }
+
+  
+      
+
+
+
+// if(isset($_POST['save'])){
+    
+//     $admissionNo=$_POST['admissionNo'];
+
+//     $check=$_POST['check'];
+//     $N = count($admissionNo);
+//     $status = "";
+
+
+// //check if the attendance has not been taken i.e if no record has a status of 1
+//   $qurty=mysqli_query($conn,"select * from tblattendance  where classId = '$_SESSION[classId]' and classArmId = '$_SESSION[classArmId]' and dateTimeTaken='$dateTaken' and status = '1'");
+//   $count = mysqli_num_rows($qurty);
+
+//   if($count > 0){
+
+//       $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>Attendance has been taken for today!</div>";
+
+//   }
+
+//     else //update the status to 1 for the checkboxes checked
+//     {
+
+//         for($i = 0; $i < $N; $i++)
+//         {
+//                 $admissionNo[$i]; //admission Number
+
+//                 if(isset($check[$i])) //the checked checkboxes
+//                 {
+//                       $qquery=mysqli_query($conn,"update tblattendance set status='1' where admissionNo = '$check[$i]'");
+
+//                       if ($qquery) {
+
+//                           $statusMsg = "<div class='alert alert-success'  style='margin-right:700px;'>Attendance Taken Successfully!</div>";
+//                       }
+//                       else
+//                       {
+//                           $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
+//                       }
+                  
+//                 }
+//           }
+//       }
+
+   
+
+// }
+
 
 ?>
 
@@ -33,7 +107,7 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
 
 
 
-   <script>
+   <!-- <script>
     function classArmDropdown(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "";
@@ -55,7 +129,7 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
         xmlhttp.send();
     }
 }
-</script>
+</script> -->
 </head>
 
 <body id="page-top">
@@ -72,7 +146,7 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">All Student in (<?php echo $rrw['className'].' - '.$rrw['classArmName'];?>) Class</h1>
+            <h1 class="h3 mb-0 text-gray-800">Take Marks</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">All Student in Class</li>
@@ -85,30 +159,33 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
 
 
               <!-- Input Group -->
-                 <div class="row">
+        <form method="post">
+            <div class="row">
               <div class="col-lg-12">
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">All Student In Class</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">All Student in (<?php echo $rrw['className'].' - '.$rrw['classArmName'];?>) Class</h6>
                 </div>
                 <div class="table-responsive p-3">
-                  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                <?php echo $statusMsg; ?>
+                  <table class="table align-items-center table-flush table-hover">
                     <thead class="thead-light">
                       <tr>
-                        <th>Sr. no</th>
+                        <th>Sr no</th>
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
                         <th>Roll No</th>
                         <th>Class</th>
                         <th>Subject</th>
+                        <th>Marks</th>
                       </tr>
                     </thead>
                     
                     <tbody>
 
                   <?php
-                      $query = "SELECT tblstudents.Id,tblclass.className,tblclassarms.classArmName,tblclassarms.Id AS classArmId,tblstudents.firstName,
+                      $query = "SELECT tblstudents.Id,tblstudents.admissionNumber,tblclass.className,tblclass.Id As classId,tblclassarms.classArmName,tblclassarms.Id AS classArmId,tblstudents.firstName,
                       tblstudents.lastName,tblstudents.otherName,tblstudents.admissionNumber,tblstudents.dateCreated
                       FROM tblstudents
                       INNER JOIN tblclass ON tblclass.Id = tblstudents.classId
@@ -132,7 +209,9 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
                                 <td>".$rows['admissionNumber']."</td>
                                 <td>".$rows['className']."</td>
                                 <td>".$rows['classArmName']."</td>
+                                <td><input name='check[]' type='number'  class='form-control'></td>
                               </tr>";
+                              echo "<input name='admissionNo[]'  type='hidden' class='form-control'>";
                           }
                       }
                       else
@@ -146,6 +225,9 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
                       ?>
                     </tbody>
                   </table>
+                  <br>
+                  <button type="submit" name="save" class="btn btn-primary">Take Marks</button>
+                  </form>
                 </div>
               </div>
             </div>
